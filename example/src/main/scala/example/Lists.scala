@@ -58,15 +58,13 @@ object Lists {
 	}
     }*/
     def max(xs: List[Int]): Int = {
-	var m : Int = 0; 
 	if (xs.length == 0) {
             throw new java.util.NoSuchElementException()
         }else if (xs.length ==1) {
 	    xs.head
 	}else{
-	    m = max(xs.tail)
-	    if (m > xs.head){
-		m
+	    if (max(xs.tail) > xs.head){
+		max(xs.tail)
 	    } else {
 		xs.head
 	    }
