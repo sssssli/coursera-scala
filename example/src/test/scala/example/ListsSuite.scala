@@ -120,7 +120,20 @@ import org.scalatest.junit.JUnitRunner
   test("max of a few numbers") {
     assert(max(List(3, 7, 2)) === 7)
   }
-
+  
+  test("sum of some negatives"){
+    assert(sum(List(1,-1)) === 0)
+  }
+  
+  test("max of empty list"){
+    intercept[java.util.NoSuchElementException]{
+      max(List())
+    }
+  }
+  
+  test("max of length 1 list"){
+    assert(max(List(1)) === 1)
+  }
 
 
 }
