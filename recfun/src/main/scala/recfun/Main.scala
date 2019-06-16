@@ -18,7 +18,16 @@ object Main {
   /**
    * Exercise 2
    */
-    def balance(chars: List[Char]): Boolean = ???
+    def balance(chars: List[Char]): Boolean = {
+	def process(chars: List[Char], counter: Int): Boolean = (chars, counter) match {
+	    case (Nil, cnt) => cnt == 0
+	    case ('(' :: xs, cnt) => process(xs, cnt + 1)
+	    case (')' :: xs, cnt) => cnt > 0 && process(xs, cnt - 1) 
+	    case (_ :: xs, cnt) => process(xs, cnt) 
+        }
+        process(chars,0)
+	
+    }
   
   /**
    * Exercise 3
